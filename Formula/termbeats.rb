@@ -8,8 +8,13 @@ class Termbeats < Formula
     on_macos do
       if Hardware::CPU.arm?
         def install
-          bin.install "termbeats"
-          pkgshare.install "assets"
+          # Install both binary and assets into libexec
+          libexec.install "termbeats", "assets"
+          # Create wrapper so `termbeats` is callable from PATH
+          (bin/"termbeats").write <<~EOS
+            #!/bin/bash
+            exec "#{libexec}/termbeats" "$@"
+          EOS
         end
       else
         odie "termbeats only supports Apple Silicon (arm64) Macs"
