@@ -2,8 +2,8 @@ class Termbeats < Formula
     desc "termbeats — make music on your terminal"
     homepage "https://github.com/dawksh/termbeats"
     version "0.0.1"
-    url "https://github.com/dawksh/termbeats/releases/download/v0.0.1/termbeats-macos-arm64.tar.gz"
-    sha256 "3792846b7c4b414939d69f21f8b640ffb0c7fedd63453b78b32746b892c9807f"
+    url "https://github.com/dawksh/termbeats/releases/download/v0.0.2/termbeats-macos-arm64.tar.gz"
+    sha256 "77eef42f31fd8998a27490640ad691fcb0ffa4451e6598a47958750269efb948"
   
     on_macos do
       if Hardware::CPU.arm?
