@@ -10,10 +10,11 @@ class Termbeats < Formula
         def install
           # Install both binary and assets into libexec
           libexec.install "termbeats", "assets"
-          # Create wrapper so `termbeats` is callable from PATH
+          # Wrapper that changes working directory so binary finds assets
           (bin/"termbeats").write <<~EOS
             #!/bin/bash
-            exec "#{libexec}/termbeats" "$@"
+            cd "#{libexec}" || exit
+            exec ./termbeats "$@"
           EOS
         end
       else
