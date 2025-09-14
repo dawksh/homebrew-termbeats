@@ -9,6 +9,7 @@ class Termbeats < Formula
       if Hardware::CPU.arm?
         def install
           bin.install "termbeats"
+          pkgshare.install "assets"
         end
       else
         odie "termbeats only supports Apple Silicon (arm64) Macs"
